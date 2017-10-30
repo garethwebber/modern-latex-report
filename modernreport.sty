@@ -21,32 +21,29 @@
 \renewcommand{\chaptermark}[1]{ \markboth{\thechapter.\ #1}{}}
 
 % Define a new title page format
-% TODO MOVE CODE FROM example.tex
 \usepackage{tikz} % Used for graphs
 \definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
 \definecolor{namecolor}{cmyk}{0,0,.60,.10}
 \newcommand{\covertext}[1]{\gdef\@covertext{#1}}%
-%\renewcommand{\maketitle}{%
-% {TEXT}%
-%}
-
-%\begin{titlepage}
-%\newgeometry{left=7.5cm,top=8cm}
-%\pagecolor{titlepagecolor}\color{white}
-%{\noindent \titlefont \LARGE \bfseries @title}\\
-%\makebox[0pt][l]{\rule{1.3\textwidth}{2pt}}
-%\par {\noindent \titlefont \textcolor{namecolor}{@author}}
-%\vskip 3cm
-%{\noindent @covertext}
-%\par {\noindent  \textcolor{namecolor}{@date}}
-%\end{titlepage}
-%\restoregeometry 
-%\pagecolor{white}
+\renewcommand\maketitle{%
+   \begin{titlepage}
+   \newgeometry{left=7.5cm,top=8cm}
+  \pagecolor{titlepagecolor}\color{white}
+  {\noindent \titlefont \LARGE \bfseries \@title}\\
+  \makebox[0pt][l]{\rule{1.3\textwidth}{2pt}}
+  \par {\noindent \titlefont \textcolor{namecolor}{\@author}}
+  \vskip 3cm
+  {\noindent \@covertext}
+  \par {\noindent  \textcolor{namecolor}{\@date}}
+  \end{titlepage}
+  \restoregeometry 
+  \pagecolor{white}
+  \color{black}
+}
 
 % Ability to redefine chapter and section headings
-% TODO MOVE CODE FROM example.tex
 % TODO make logic change for ToC, LoT, LoF and Bibliography
 \RequirePackage{titlesec} 
-%\titleformat{\chapter}[block]{\Huge\titlefont\bfseries}{\centering\thechapter\vskip -10pt}{0ex}{\centering\rule{0.3\textwidth}{2pt}\vskip 0pt\centering} []
+\titleformat{\chapter}[block]{\Huge\titlefont\bfseries}{\centering\thechapter\vskip -10pt}{0ex}{\centering\rule{0.3\textwidth}{2pt}\vskip 0pt\centering} []
 %\titleformat{\chapter}[block]{\Huge\titlefont\bfseries}{\thechapter}{0ex}{\centering} []
 
