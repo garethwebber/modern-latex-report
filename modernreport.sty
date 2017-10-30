@@ -1,5 +1,6 @@
 %
 %  Modern Report Style
+% https://github.com/garethwebber/modern-latex-report/blob/master/modernreport.sty
 %
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{modernreport}[2017/10/30 Modern Report Style]
@@ -42,8 +43,8 @@
 }
 
 % Ability to redefine chapter and section headings
-% TODO make logic change for ToC, LoT, LoF and Bibliography
 \RequirePackage{titlesec} 
 \titleformat{\chapter}[block]{\Huge\titlefont\bfseries}{\centering\thechapter\vskip -10pt}{0ex}{\centering\rule{0.3\textwidth}{2pt}\vskip 0pt\centering} []
-%\titleformat{\chapter}[block]{\Huge\titlefont\bfseries}{\thechapter}{0ex}{\centering} []
+\titleformat{name=\chapter, numberless}[block]{\Huge\titlefont\bfseries}{}{0ex}{\centering} []
+\titleformat{\section}[block]{\Huge\titlefont\bfseries}{}{0ex}{\centering} []
 
