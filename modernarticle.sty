@@ -1,0 +1,55 @@
+%
+%  Modern Article Style
+% https://github.com/garethwebber/modern-latex-report/blob/master/modernarticle.sty
+%
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{modernreport}[2017/10/30 Modern Report Style]
+
+% Setup page layout
+\RequirePackage[a4paper, hmargin=1in, vmargin=1in,headheight=14pt]{geometry} 
+
+% Change body and header fonts
+\RequirePackage{fontspec} 
+\setmainfont[Ligatures=TeX]{Palatino}
+\newfontfamily\titlefont[Ligatures=TeX]{Roboto}
+
+% Line break and no-indent on paragraphs
+\RequirePackage[parfill]{parskip} 
+
+% Define a new title page format
+\usepackage{tikz} % Used for graphs
+\definecolor{titlepagecolor}{cmyk}{.65,1,0.05,.40}
+\definecolor{namecolor}{cmyk}{0,0,.60,.10}
+\newcommand{\covertext}[1]{\gdef\@covertext{#1}}%
+\renewcommand\maketitle{%
+   \begin{titlepage}
+   \newgeometry{left=7.5cm,top=8cm}
+  \pagecolor{titlepagecolor}\color{white}
+  {\noindent \titlefont \LARGE \bfseries \@title}\\
+  \makebox[0pt][l]{\rule{1.3\textwidth}{2pt}}
+  \par {\noindent \titlefont \textcolor{namecolor}{\@author}}
+  \vskip 3cm
+  {\noindent \@covertext}
+  \par {\noindent  \textcolor{namecolor}{\@date}}
+  \end{titlepage}
+  \restoregeometry 
+  \pagecolor{white}
+  \color{black}
+}
+
+% Header and footer config
+\RequirePackage{fancyhdr} 
+\pagestyle{fancy}
+\definecolor {gray75}{gray}{0.75}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\hsp}{\hspace{3pt}}
+\rhead{\textit{\@title\hsp\textcolor{gray75}{|}\hsp\thepage}}
+\lhead{}
+\cfoot{}
+
+
+
+% Ability to redefine chapter and section headings
+\RequirePackage{titlesec} 
+\titleformat{\section}[hang]{\Large\titlefont\bfseries}{}{0ex}{\textcolor{titlepagecolor}} []
+\titlespacing{\section}{0pt}{*4}{*-.5}
