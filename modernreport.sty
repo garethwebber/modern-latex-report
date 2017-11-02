@@ -16,11 +16,6 @@
 % Line break and no-indent on paragraphs
 \RequirePackage[parfill]{parskip} 
 
-% Header and footer config
-\RequirePackage{fancyhdr} 
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{ \markboth{\thechapter.\ #1}{}}
-
 % Define a new title page format
 \usepackage{tikz} % Used for graphs
 \definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
@@ -41,6 +36,19 @@
   \pagecolor{white}
   \color{black}
 }
+
+% Header and footer config
+\RequirePackage{fancyhdr} 
+\pagestyle{fancy}
+\definecolor {gray75}{gray}{0.75}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\hsp}{\hspace{3pt}}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{}}
+\rhead{\textit{\leftmark\hsp\textcolor{gray75}{|}\hsp\thepage}}
+\lhead{}
+\cfoot{}
+
+
 
 % Ability to redefine chapter and section headings
 \RequirePackage{titlesec} 
